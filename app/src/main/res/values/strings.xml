@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">JsoupStep22</string>
+    <string name="random">ランダムワード</string>
+    <string name="clear">クリア</string>
+    <string name="enter_a_word">単語を入力</string>
+    <string name="display">検索結果を表示</string>
+    <string name="confirm">確認</string>
+    <string name="dialog_title">確認</string>
+    <string name="dialog_message">全ての単語を消去します\n一度消した単語は戻せません</string>
+    <string name="dialog_ok">全消去</string>
+    <string name="dialog_ok_toast">全ての単語を消去しました</string>
+    <string name="dialog_ng">戻る</string>
+    <string name="dialog_ng_toast">全消去を中止しました</string>
+</resources>
