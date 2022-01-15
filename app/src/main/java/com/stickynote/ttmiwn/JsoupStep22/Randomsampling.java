@@ -7,18 +7,16 @@ import java.util.Collections;
 
 public class Randomsampling {
 
-    StringBuilder stb = new StringBuilder();
-
-    StringBuilder ListRandomsampling(ArrayList<String> list){
+    String ListRandomsampling(ArrayList<String> list){
 
         Collections.shuffle(list);
+        StringBuilder stb = new StringBuilder();
 
         for(int i=0 ; i<3 ; i++) {
             String str = list.get(i);
             stb.append(str + " ");
         }
 
-        return stb;
+        return stb.toString();
     }
-
 }

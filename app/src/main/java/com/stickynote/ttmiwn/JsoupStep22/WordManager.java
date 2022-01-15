@@ -21,73 +21,52 @@ import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
+//データベース管理画面
 public class WordManager extends AppCompatActivity {
 
-//    削除iDの番号　SQLに渡す
-    String deleteId = "";
+    //    削除iDの番号　SQLに渡す
+    String selectID = "";
+    ListView myListView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_word_manager);
 
-        Intent intent = getIntent();
+        TextView textView = findViewById(R.id.selectWord);
 
-        ListView myListView = findViewById(R.id.listview);
+        ListDisp();
 
-        Button hyouji = findViewById(R.id.mgbt);
-        hyouji.setOnClickListener(new View.OnClickListener() {
+//        削除BT） リストとビューで選択した単語を削除
+        Button deleBt = findViewById(R.id.deleteBt);
+        deleBt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 DatabaseHelper _helper = new DatabaseHelper(WordManager.this);
                 SQLiteDatabase db = _helper.getWritableDatabase();
 
-                Cursor cursor = db.query("serchwords", null, null, null, null, null, null);
+                String sqlDelete = "DELETE FROM serchwords WHERE _id = ?";
+                SQLiteStatement stmt = db.compileStatement(sqlDelete);
+                stmt.bindLong(1, Long.parseLong(selectID));
 
-//        LIｓｔView用の表示
-                String[] from = {"_id", "word" };
-                int[] to = {android.R.id.text1,android.R.id.text2};
-                SimpleCursorAdapter adapter = new SimpleCursorAdapter(WordManager.this,android.R.layout.simple_list_item_2,cursor,from,to,0);
+                stmt.executeUpdateDelete();
 
-                //バインドして表示
-                myListView.setAdapter(adapter);
-
+                ListDisp();
             }
-
         });
 
         //リストビューをタップした時の各行のデータを取得
         myListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int i, long l) {
-            deleteId = ((TextView)view.findViewById(android.R.id.text1)).getText().toString();
-          }
-        });
-
-        Button deleBt = findViewById(R.id.deleteBt);
-        deleBt.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                // データベースヘルパーオブジェクトからデータベース接続オブジェクトを取得。
-                DatabaseHelper _helper = new DatabaseHelper(WordManager.this);
-                SQLiteDatabase db = _helper.getWritableDatabase();
-
-                // 削除用SQL文字列を用意。
-                String sqlDelete = "DELETE FROM serchwords WHERE _id = ?";
-                // SQL文字列を元にプリペアドステートメントを取得。
-                SQLiteStatement stmt = db.compileStatement(sqlDelete);
-                // 変数のバイド。
-                stmt.bindLong(1, Long.parseLong(deleteId));
-                // 削除SQLの実行。
-                stmt.executeUpdateDelete();
-
+                selectID = ((TextView)view.findViewById(android.R.id.text1)).getText().toString();
+                textView.setText(((TextView)view.findViewById(android.R.id.text2)).getText().toString());
             }
         });
 
 
-//        データベース全消去
+//        全削除BT） DBテーブル削除　ワンクッションのダイアログ表示
         Button allDelete = findViewById(R.id.allDeleteBt);
         allDelete.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,21 +75,10 @@ public class WordManager extends AppCompatActivity {
                 ConfirmDialog cfd = new ConfirmDialog();
                 cfd.show(getSupportFragmentManager(), "ConfirmDialog");
 
-//                DatabaseHelper _helper = new DatabaseHelper(WordManager.this);
-//                SQLiteDatabase db = _helper.getWritableDatabase();
-//
-//                String sql = "DELETE FROM serchwords";
-//
-//                try {
-//                    db.execSQL(sql);
-//                } catch (SQLException e) {
-//                    Log.e("ERROR", e.toString());
-//                }
-
             }
         });
 
-//        メイン画面に戻る
+//        戻る） メイン画面に戻る
         Button backBt = findViewById(R.id.backBt);
         backBt.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -121,5 +89,21 @@ public class WordManager extends AppCompatActivity {
 
     }
 
-}
+    //   データベースの中身を表示
+    public void ListDisp(){
+        DatabaseHelper _helper = new DatabaseHelper(WordManager.this);
+        SQLiteDatabase db = _helper.getWritableDatabase();
 
+        Cursor cursor = db.query("serchwords", null, null, null, null, null, null);
+
+//        LIｓｔView用の表示
+        String[] from = {"_id", "word" };
+        int[] to = {android.R.id.text1,android.R.id.text2};
+        SimpleCursorAdapter adapter = new SimpleCursorAdapter(WordManager.this,android.R.layout.simple_list_item_2,cursor,from,to,0);
+
+        //バインドして表示
+        myListView = findViewById(R.id.listview);
+        myListView.setAdapter(adapter);
+
+    }
+}

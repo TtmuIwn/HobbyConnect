@@ -11,4 +11,7 @@
     <string name="dialog_ok_toast">全ての単語を消去しました</string>
     <string name="dialog_ng">戻る</string>
     <string name="dialog_ng_toast">全消去を中止しました</string>
+    <string name="word_registration">単語登録</string>
+    <string name="word_management">管理</string>
+    <string name="Browse_with_an_external_browser">外部ブラウザで閲覧</string>
 </resources>

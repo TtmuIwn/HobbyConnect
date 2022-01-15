@@ -4,7 +4,8 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-//　データベースバージョン　確認　一個上げてる
+//　初回データベース作成　バージョンUPやダウン未対応
+
 public class DatabaseHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "serchword.db";
@@ -26,7 +27,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         sb.append(");");
         String sql = sb.toString();
 
-        // SQLの実行。
         db.execSQL(sql);
     }
 

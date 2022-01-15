@@ -40,40 +40,32 @@ public class BackgroundJsoup implements Runnable {
     public void run() {
         // HTTP接続を行うHttpURLConnectionオブジェクトを宣言。finallyで解放するためにtry外で宣言。
         HttpURLConnection con = null;
-
-        String text = "";
         List<String> list = new ArrayList<>();
-        Document doc = null;
 
         try {
             // URLオブジェクトを生成。
             URL url = new URL(_urlFull);
-            // URLオブジェクトからHttpURLConnectionオブジェクトを取得。
             con = (HttpURLConnection) url.openConnection();
-//            // 接続に使ってもよい時間を設定。
-//            con.setConnectTimeout(1000);
-//            // データ取得に使ってもよい時間。
-//            con.setReadTimeout(1000);
-            // HTTP接続メソッドをGETに設定。
+            con.setConnectTimeout(10000);
+            con.setReadTimeout(10000);
             con.setRequestMethod("GET");
-            // 接続。
             con.connect();
 
             final int statusCode = con.getResponseCode();
             if (statusCode != HttpURLConnection.HTTP_OK) {
-                System.err.println("正常に接続できていません。statusCode:" + statusCode);
+                Log.e(DEBUG_TAG,"正常に接続できていません。statusCode:" + statusCode);
             }
 
             // Jsoupで対象URLの情報を取得する。
             try {
-                doc = Jsoup.connect(_urlFull).get();
+                Document doc = Jsoup.connect(_urlFull).get();
                 Elements elements = doc.select("h3");
                 for (Element element : elements) {
                     list.add(element.text());
                 }
-                text = doc.text();
-            } catch (IOException e) {
-                e.printStackTrace();
+
+            } catch (IOException ex) {
+                Log.e(DEBUG_TAG, "Jsoupスクレイピング設定の確認", ex);
             }
         }
         catch(MalformedURLException ex) {
@@ -93,7 +85,6 @@ public class BackgroundJsoup implements Runnable {
             }
         }
 
-        MainActivity.setValues(text);
         MainActivity.setStrarray(list);
     }
 }
