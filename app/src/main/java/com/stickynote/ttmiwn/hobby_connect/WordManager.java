@@ -1,25 +1,17 @@
-package com.stickynote.ttmiwn.JsoupStep22;
+package com.stickynote.ttmiwn.hobby_connect;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.DialogFragment;
 
-import android.app.Dialog;
-import android.content.DialogInterface;
-import android.content.Intent;
 import android.database.Cursor;
-import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteStatement;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
-import android.widget.Toast;
 
 //データベース管理画面
 public class WordManager extends AppCompatActivity {

@@ -1,4 +1,4 @@
-package com.stickynote.ttmiwn.JsoupStep22;
+package com.stickynote.ttmiwn.hobby_connect;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.os.HandlerCompat;
@@ -11,7 +11,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
-import android.view.Gravity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;

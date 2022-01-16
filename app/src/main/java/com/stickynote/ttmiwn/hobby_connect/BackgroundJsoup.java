@@ -1,9 +1,7 @@
-package com.stickynote.ttmiwn.JsoupStep22;
+package com.stickynote.ttmiwn.hobby_connect;
 
 import android.os.Handler;
 import android.util.Log;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
 
 import androidx.annotation.WorkerThread;
 

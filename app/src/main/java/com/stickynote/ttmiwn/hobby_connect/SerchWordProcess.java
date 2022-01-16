@@ -1,4 +1,4 @@
-package com.stickynote.ttmiwn.JsoupStep22;
+package com.stickynote.ttmiwn.hobby_connect;
 
 //  全角スペースを半角スペースに変換後、trimして分割
 // 、, 等への対応ほか、記号への追記など必要か

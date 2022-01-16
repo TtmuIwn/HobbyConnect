@@ -1,4 +1,4 @@
-package com.stickynote.ttmiwn.JsoupStep22;
+package com.stickynote.ttmiwn.hobby_connect;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;

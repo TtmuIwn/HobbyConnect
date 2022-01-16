@@ -1,4 +1,4 @@
-package com.stickynote.ttmiwn.JsoupStep22;
+package com.stickynote.ttmiwn.hobby_connect;
 
 import android.app.Dialog;
 import android.content.DialogInterface;

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.stickynote.ttmiwn.JsoupStep22">
+    package="com.stickynote.ttmiwn.hobby_connect">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -13,10 +13,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.JsoupExample">
         <activity
-            android:name=".WordManager"
+            android:name="com.stickynote.ttmiwn.hobby_connect.WordManager"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name="com.stickynote.ttmiwn.hobby_connect.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

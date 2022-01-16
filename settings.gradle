@@ -6,5 +6,5 @@ dependencyResolutionManagement {
         jcenter() // Warning: this repository is going to shut down soon
     }
 }
-rootProject.name = "JsoupStep22"
+rootProject.name = "HobbyConnect"
 include ':app'
