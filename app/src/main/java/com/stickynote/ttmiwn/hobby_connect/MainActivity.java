@@ -122,16 +122,19 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-//        外部ブラウザボタン） 暗黙インデント chromeで検索
+//        外部ブラウザボタン） chromeで検索
         Button browser = findViewById(R.id.goBrowser);
         browser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 String urlfull = url + preURL;
-                Intent intent = new Intent();
-                intent.setData(Uri.parse(urlfull));
+                Intent intent = new Intent(
+                        Intent.ACTION_VIEW,
+                        Uri.parse(urlfull)
+                );
                 startActivity(intent);
+
             }
         });
 

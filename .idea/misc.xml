@@ -3,13 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Data/AndroidStudio/AndroidStudioProjects/Deliverables/HobbyConnect/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/Data/AndroidStudio/AndroidStudioProjects/Deliverables/HobbyConnect/app/src/main/res/layout/activity_word_manager.xml" value="0.21331521739130435" />
         <entry key="..\:/Data/AndroidStudio/AndroidStudioProjects/JsoupStep22/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Data/AndroidStudio/AndroidStudioProjects/JsoupStep22/app/src/main/res/layout/activity_word_manager.xml" value="0.33" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_X" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_16" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

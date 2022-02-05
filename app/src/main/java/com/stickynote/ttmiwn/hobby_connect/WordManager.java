@@ -81,7 +81,7 @@ public class WordManager extends AppCompatActivity {
 
     }
 
-    //   データベースの中身を表示
+//    データベースの中身を表示
     public void ListDisp(){
         DatabaseHelper _helper = new DatabaseHelper(WordManager.this);
         SQLiteDatabase db = _helper.getWritableDatabase();
